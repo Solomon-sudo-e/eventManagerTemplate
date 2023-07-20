@@ -5,7 +5,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import eventpackages.ComponentScanMarker;
 
-
 @SpringBootApplication(scanBasePackageClasses = {ComponentScanMarker.class})
 public class eventApplication {
 
