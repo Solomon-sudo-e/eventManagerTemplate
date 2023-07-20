@@ -4,18 +4,14 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.validation.constraints.Pattern;
 import lombok.Data;
 
 @Entity
 @Data
-public class Event {
+public class Guest {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	String eventName;
+	private Long guestId;
 	
-	@Pattern(regexp = "[0-9]*")
-	int dateOfEvent;
 	
-	}
-
+}
