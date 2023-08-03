@@ -1,31 +1,27 @@
 package eventpackages.events.Entity;
 
-import org.hibernate.validator.constraints.Length;
+import org.springframework.data.annotation.Id;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
 import jakarta.validation.constraints.Pattern;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
-@Entity
 @Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class Registration {
 	enum Acceptance {
 		YES, NO
 	}
+
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long registrationId;
+	private Long registrationId, registrationAddOnQuestions;
 	
 	private Acceptance acceptance;
 	
 	@Pattern(regexp = "[^A-Z]*")
-	@Length(max=12)
 	private String registration_date;
-	
-	private String registrationAddOnQuestions;
 	
 	
 	/*

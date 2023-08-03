@@ -1,35 +1,31 @@
 package eventpackages.events.Entity;
 
-import org.hibernate.validator.constraints.Length;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import org.springframework.data.annotation.Id;
+
 import jakarta.validation.constraints.Pattern;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
-@Entity
-public class Event_Creation {
+@NoArgsConstructor
+@AllArgsConstructor
+public class EventCreation {
 	
 	enum Status {
 		ACCEPTED, DENIED
 	}
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long eventCreationId;
 	
-	private String text;
+	private String text, accomodations;
 	private Status status;
-	private String accommodations;
 	
 	@Pattern(regexp = "[0-9]*[^A-Z]")
-	@Length(max = 8, min = 8)
 	private String dateOf;
 	
 	@Pattern(regexp = "[^A-Z]")
-	@Length(max = 5)
 	private String timeOf;
 	
 	/*

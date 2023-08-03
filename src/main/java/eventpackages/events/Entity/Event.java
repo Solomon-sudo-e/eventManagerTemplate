@@ -1,17 +1,18 @@
 package eventpackages.events.Entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.validation.constraints.Pattern;
-import lombok.Data;
+import org.springframework.data.annotation.Id;
 
-@Entity
+import jakarta.validation.constraints.Pattern;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class Event {
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	String eventName;
 	
 	@Pattern(regexp = "[0-9]*")

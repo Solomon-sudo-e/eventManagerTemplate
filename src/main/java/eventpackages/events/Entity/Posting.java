@@ -1,30 +1,23 @@
 package eventpackages.events.Entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import lombok.Data;
+import org.springframework.data.annotation.Id;
 
-@Entity
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 @Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class Posting {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long postingId;
 
-    private String description;
+    private String description, accomodations;
 
-    private String accomodations;
+    private Long eventId, venueId, userId, registrationid;
 
-    private Long eventId;
-
-    private Long venueId;
-
-    private Long organizerId;
-
-    private Long registrationId;
 
     /*
 

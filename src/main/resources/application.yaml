@@ -1,0 +1,13 @@
+server:
+  port: 7655
+  
+spring:
+  rsocket:
+    server:
+      port: 7656
+
+#spring.data.r2dbc.repositories.enabled=true
+  r2dbc:
+    url: r2dbc:mysql://localhost:3306/event_management
+    username: event_management
+    password: event_management
