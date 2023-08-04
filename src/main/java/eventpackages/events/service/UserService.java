@@ -3,7 +3,9 @@ package eventpackages.events.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import eventpackages.events.Entity.Guest;
 import eventpackages.events.Entity.UserData;
+import eventpackages.events.dao.GuestRepository;
 import eventpackages.events.dao.UserRepository;
 import reactor.core.publisher.Mono;
 
@@ -12,6 +14,9 @@ public class UserService {
 
 	@Autowired
 	UserRepository repo;
+	
+	@Autowired
+	GuestRepository guRepo;
 	
 //	@Autowired
 //	WebClient client;
@@ -53,4 +58,15 @@ public class UserService {
 		return this.repo.deleteById(user_id);
 	}
 	
+	public Mono<Guest> createGuest(Guest guest) {
+		return this.guRepo.save(guest);
+	}
+	
+	public Mono<Guest> getGuest(Long guest_id) {
+		return this.guRepo.findById(guest_id);
+	}
+	
+	public Mono<Void> deleteGuest(Long guest_id) {
+		return this.guRepo.deleteById(guest_id);
+	}
 }
