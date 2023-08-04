@@ -21,12 +21,14 @@ public class EventController {
 	@Autowired
 	EventService service;
 	
-	
+	public EventController(EventService service) {
+		this.service = service;
+	}
 	/*
 	 * Event Entity
 	 */
 	
-	@GetMapping("/{event_id}")
+	@GetMapping("/event{event_id}")
 	public Mono<Event> getEvent(@PathVariable Long event_id) {
 		return service.getEvent(event_id);
 	}
@@ -36,7 +38,7 @@ public class EventController {
 		return service.getAllEvents();
 	}
 	
-	@PutMapping("/{event_id}")
+	@PutMapping("/event/{event_id}")
 	public Mono<Event> updateEvent(@PathVariable Long event_id, @RequestBody Mono<Event> event) {
 		return service.updateEvent(event_id, event);
 	}
@@ -46,7 +48,7 @@ public class EventController {
 		return service.createEvent(event);
 	}
 	
-	@DeleteMapping("/{event_id}")
+	@DeleteMapping("/event/{event_id}")
 	public Mono<Void> deleteEvent(@PathVariable Long event_id) {
 		return service.deleteEvent(event_id);
 	}
@@ -55,7 +57,7 @@ public class EventController {
 	 * Event Creation Entity
 	 */
 	
-	@GetMapping("/{eventCr_id}")
+	@GetMapping("/eventCr/{eventCr_id}")
 	public Mono<EventCreation> getEventCreator(@PathVariable Long eventCr_id) {
 		return service.getEventCreator(eventCr_id);
 	}
@@ -65,7 +67,7 @@ public class EventController {
 		return service.createEventCr(eventCr);
 	}
 	
-	@DeleteMapping("/{eventCr_id}")
+	@DeleteMapping("/eventCr/{eventCr_id}")
 	public Mono<Void> deleteEventCr(@PathVariable Long eventCr_id) {
 		return service.deleteEventCr(eventCr_id);
 	}

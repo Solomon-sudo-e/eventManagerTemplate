@@ -12,6 +12,6 @@ import lombok.NoArgsConstructor;
 public class Guest {
 	@Id
 	private Long guest_id;
-	
+	private String guest_name;
 	
 }

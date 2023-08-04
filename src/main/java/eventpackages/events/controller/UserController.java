@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import eventpackages.events.Entity.Guest;
 import eventpackages.events.Entity.UserData;
 import eventpackages.events.service.UserService;
 import reactor.core.publisher.Mono;
@@ -26,8 +27,12 @@ public class UserController {
 		this.service = service;
 	}
 	
+	
+	/*
+	 * UserData entity
+	 */
 	@ResponseBody
-	@GetMapping("/{user_id}")
+	@GetMapping("/user/{user_id}")
 	public Mono<UserData> getCurrentUser(@PathVariable Long user_id) throws IOException {
 		return service.getUser(user_id);
 	}
@@ -37,14 +42,33 @@ public class UserController {
 		return service.createUser(user);
 	}
 	
-	@PutMapping("/{user_id}")
+	@PutMapping("/user/{user_id}")
 	public Mono<UserData> updateExistingUser(@PathVariable Long user_id, @RequestBody Mono<UserData> user) throws IOException {
 		return service.updateUser(user_id, user);
 	}
 	
-	@DeleteMapping("/{user_id}")
+	@DeleteMapping("/user/{user_id}")
 	public Mono<Void> deleteUser(@PathVariable Long user_id) throws IOException {
 		return service.deleteUser(user_id);
 	}
+	
+	/*
+	 * Guest entity
+	 */
+	@GetMapping("/guest/{guest_id}")
+	public Mono<Guest> getGuest(@PathVariable Long guest_id) throws IOException {
+		return service.getGuest(guest_id);
+	}
+	
+	@PostMapping("/guest")
+	public Mono<Guest> createGuest(@RequestBody Guest guest) {
+		return service.createGuest(guest);
+	}
+	
+	@DeleteMapping("/guest/{guest_id}")
+	public Mono<Void> deleteGuest(@PathVariable Long guest_id) {
+		return service.deleteGuest(guest_id);
+	}
+	
 	
 }
