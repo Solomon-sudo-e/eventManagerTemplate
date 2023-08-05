@@ -51,7 +51,7 @@ public class UserService {
 				.flatMap(u -> this.repo.save(u));
 	}
 
-	// u = user_id
+	// u = user_id2
 	// d = body
 	
 	public Mono<Void> deleteUser(Long user_id) {
