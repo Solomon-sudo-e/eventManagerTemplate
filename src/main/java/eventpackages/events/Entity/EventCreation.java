@@ -1,9 +1,10 @@
 package eventpackages.events.Entity;
 
 
+import java.time.Instant;
+
 import org.springframework.data.annotation.Id;
 
-import jakarta.validation.constraints.Pattern;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -13,21 +14,25 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class EventCreation {
 	
-	enum Status {
+	public enum Status {
 		ACCEPTED, DENIED
 	}
 	@Id
 	private Long eventCreationId;
 	
-	private String text, accomodations;
+	private String description, accommodations;
 	private Status status;
 	
-	@Pattern(regexp = "[0-9]*[^A-Z]")
-	private String dateOf;
+	String dateOf;
 	
-	@Pattern(regexp = "[^A-Z]")
-	private String timeOf;
+	String timeOf;
 	
+	
+	public EventCreation(String description, String accommodations, EventCreation.Status status, 
+			String dateOf, String timeOf) {
+		this(null, description, accommodations, status,
+				dateOf, timeOf);
+	}
 	/*
 	 * /*
 	 * CREATE TABLE Event_Creation(

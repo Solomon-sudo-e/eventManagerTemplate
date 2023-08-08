@@ -16,7 +16,9 @@ public class Registration {
 	}
 
 	@Id
-	private Long registrationId, registrationAddOnQuestions;
+	private Long registrationId;
+	
+	private String registrationAddOnQuestions;
 	
 	private Acceptance acceptance;
 	

@@ -1,5 +1,6 @@
 package eventpackages.events.Config;
 
+
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
@@ -8,8 +9,7 @@ import org.springframework.core.io.ClassPathResource;
 import org.springframework.r2dbc.connection.init.ConnectionFactoryInitializer;
 import org.springframework.r2dbc.connection.init.ResourceDatabasePopulator;
 
-import eventpackages.events.Entity.UserData;
-import eventpackages.events.dao.UserRepository;
+import eventpackages.events.dao.PostingRepository;
 import io.r2dbc.spi.ConnectionFactory;
 
 @Configuration
@@ -26,7 +26,7 @@ public class DbCoxInit {
 	}
 
 //	@Bean
-//	CommandLineRunner init(UserRepository repo) {
+//	CommandLineRunner initUser(UserRepository repo) {
 //		return args -> {
 //			repo.save(new UserData("Solomon", "4793243242",
 //					"Siloam", "Spain", 
@@ -36,4 +36,29 @@ public class DbCoxInit {
 //		};
 //	}
 	
+//	@Bean
+//	CommandLineRunner initEvent(EventCrRepository repo) {
+//		Status accept = Status.ACCEPTED;
+//		return args -> {
+//			repo.save(new EventCreation("New event", "free food", accept, "time", "tiempo"))
+//			.thenMany(repo.findAll())
+//			.subscribe(System.out::println);
+//		};
+//	}
+	
+//	@Bean
+//	CommandLineRunner initEventCr(EventRepository repo) {
+//		return args -> {
+//			repo.save(new Event("Hackathon", "Where the best meet", "023422", "022225"))
+//			.thenMany(repo.findAll())
+//			.subscribe(System.out::println);
+//		};
+//	}
+	
+	@Bean
+	CommandLineRunner initPosting(PostingRepository repo) {
+		return args -> {
+			repo.save(new Posting())
+		}
+	}
 }

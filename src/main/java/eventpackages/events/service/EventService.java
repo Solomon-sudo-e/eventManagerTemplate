@@ -25,8 +25,10 @@ public class EventService {
 	public Mono<Event> updateEvent(Long event_id, Mono<Event> event) {
 				return this.repo.findById(event_id)
 				.flatMap(e -> event.map(d -> {
-					e.setEventName(d.getEventName());
-					e.setDateOfEvent(d.getDateOfEvent());
+					e.setName(d.getName());
+					e.setDateOf(d.getDateOf());
+					e.setDescription(d.getDescription());
+					e.setTimeOf(d.getTimeOf());
 					return e;
 				}))
 				.flatMap(e -> this.repo.save(e));

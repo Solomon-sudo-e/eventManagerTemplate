@@ -13,10 +13,11 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class Event {
 	@Id
-	String eventName;
+	private Long event_id;
+	private String name, description, dateOf, timeOf;
 	
-	@Pattern(regexp = "[0-9]*")
-	int dateOfEvent;
-	
+	public Event(String name, String description, String dateOf, String timeOf) {
+		this(null, name, description, dateOf, timeOf);
 	}
+}
 
