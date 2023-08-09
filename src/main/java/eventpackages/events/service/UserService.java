@@ -22,7 +22,7 @@ public class UserService {
 //	WebClient client;
 	
 	
-	public Mono<UserData> getUser(Long user_id) {
+	public Mono<UserData> getUser(long user_id) {
 //		client.get()
 //		.uri("/{user_id}")
 //		.retrieve()

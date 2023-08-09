@@ -9,7 +9,8 @@ import org.springframework.core.io.ClassPathResource;
 import org.springframework.r2dbc.connection.init.ConnectionFactoryInitializer;
 import org.springframework.r2dbc.connection.init.ResourceDatabasePopulator;
 
-import eventpackages.events.dao.PostingRepository;
+import eventpackages.events.Entity.Guest;
+import eventpackages.events.dao.GuestRepository;
 import io.r2dbc.spi.ConnectionFactory;
 
 @Configuration
@@ -55,10 +56,45 @@ public class DbCoxInit {
 //		};
 //	}
 	
-	@Bean
-	CommandLineRunner initPosting(PostingRepository repo) {
-		return args -> {
-			repo.save(new Posting())
-		}
-	}
+//	@Bean
+//	CommandLineRunner initVenue(VenueRepository repo) {
+//		return args -> {
+//			repo.save(new Venue("La rosa", "2231 S California Lane", 250))
+//			.thenMany(repo.findAll())
+//			.subscribe(System.out::println);
+//		};
+//	}
+	
+//	@Bean
+//	CommandLineRunner initRegistraton(RegistrationRepository repo) {
+//		Private yes = Private.YES;
+//		long userId = 1;
+//		return args -> {
+//			repo.save(new Registration("Will you be bringing a guest?, How old are you?",
+//					yes, userId))
+//			.thenMany(repo.findAll())
+//			.subscribe(System.out::println);	
+//		};
+//	}
+	
+//	@Bean
+//	CommandLineRunner initPosting(PostingRepository repo) {
+//		long variable = 1;
+//		return args -> {
+//			repo.save(new Posting("New event somewhere cool", "Free water", variable, 
+//					variable, variable, variable))
+//			.thenMany(repo.findAll())
+//			.subscribe(System.out::println);
+//		};
+//	}
+	
+//	@Bean
+//	CommandLineRunner initGuest(GuestRepository repo) {
+//		return args -> {
+//			repo.save(new Guest("salmon"))
+//			.thenMany(repo.findAll())
+//			.subscribe(System.out::println);
+//		};
+//	}
+	
 }

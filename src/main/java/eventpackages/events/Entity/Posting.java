@@ -14,10 +14,13 @@ public class Posting {
     @Id
     private Long postingId;
 
-    private String description, accomodations;
+    private String description, accommodations;
 
-    private Long eventId, venueId, userId, registrationid;
+    private Long eventId, venueId, userId, registrationId;
 
+    public Posting(String description, String accommodations, Long eventId, Long venueId, Long userId, Long registrationId) {
+    	this(null, description, accommodations, eventId, venueId, userId, registrationId);
+    }
 
     /*
 

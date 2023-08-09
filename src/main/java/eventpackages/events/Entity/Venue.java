@@ -18,7 +18,9 @@ public class Venue {
 	
 	private String venueName, address;
 	
-	private int capacity;
+	private Integer capacity;
 	
-	
+	public Venue(String venueName, String address, Integer capacity) {
+		this(null, venueName, address, capacity);
+	}
 }

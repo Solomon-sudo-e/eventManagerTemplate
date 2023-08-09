@@ -33,7 +33,7 @@ public class UserController {
 	 */
 	@ResponseBody
 	@GetMapping("/user/{user_id}")
-	public Mono<UserData> getCurrentUser(@PathVariable Long user_id) throws IOException {
+	public Mono<UserData> getCurrentUser(@PathVariable long user_id) throws IOException {
 		return service.getUser(user_id);
 	}
 	

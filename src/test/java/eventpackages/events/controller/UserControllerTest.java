@@ -1,6 +1,6 @@
-package eventpackages;
+package eventpackages.events.controller;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -13,7 +13,6 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.test.web.reactive.server.WebTestClient;
 
 import eventpackages.events.Entity.UserData;
-import eventpackages.events.controller.UserController;
 import eventpackages.events.service.UserService;
 
 @WebFluxTest(controllers = {UserController.class})
@@ -29,13 +28,13 @@ class UserControllerTest {
 	
 	@BeforeEach
 	void setUp(ApplicationContext context) {
-		user1 = new UserData ("Manny", "3213450321", "Miami",
+		user1 = new UserData("Manny", "3213450321", "Miami",
 				"Florida", "manny.miami@gmail.com", "mascots0");
 		
 		user2 = new UserData("marco", "3243234565", "St augistine",
 				"florida", "marco.flo@gmail.com", "taytay02");
-		
-		Mockito.when(service.getUser((long) 1).thenReturn(user1));
+		long one = 1;
+		Mockito.when(service.getUser(one).thenReturn(user1));
 		
 	}
 	

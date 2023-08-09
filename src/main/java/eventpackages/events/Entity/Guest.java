@@ -14,4 +14,8 @@ public class Guest {
 	private Long guest_id;
 	private String guest_name;
 	
+	
+	public Guest(String guest_name) {
+		this(null, guest_name);
+	}
 }

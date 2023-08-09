@@ -11,7 +11,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Registration {
-	enum Acceptance {
+	public enum Private {
 		YES, NO
 	}
 
@@ -20,11 +20,14 @@ public class Registration {
 	
 	private String registrationAddOnQuestions;
 	
-	private Acceptance acceptance;
+	private Private privacy;
 	
-	@Pattern(regexp = "[^A-Z]*")
-	private String registration_date;
+	private Long userId;
 	
+	public Registration(String registrationAddOnQuestions, 
+			Private privacy, Long userId) {
+		this(null, registrationAddOnQuestions, privacy, userId);
+	}
 	
 	/*
 	 * 
@@ -37,4 +40,5 @@ organizer_id INT,
 FOREIGN KEY (organizer_id) REFERENCES Organizer (organizer_id) ON DELETE CASCADE
 );
 	 */
+	
 }
